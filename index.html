@@ -76,15 +76,16 @@
 
 <script>
 var now = new Date().getUTCTime();
-  
+var offset = new Date().getTimezoneOffset();
+
 var countDownDate1 = new Date(document.getElementById("data1").innerHTML).getTime();
 var countDownDate2 = new Date(document.getElementById("data2").innerHTML).getTime();
 var countDownDate3 = new Date(document.getElementById("data3").innerHTML).getTime();
   
 // Update the count down every 1 second
 var x = setInterval(function() {
-  now = new Date().getUTCTime();
-  now.setTime(now.getTime() + (7200000));
+  now = new Date().getTime();
+  now.setTime(now.getTime() + offset);
   
   timeMe(countDownDate1, "timer1");
   timeMe(countDownDate2, "timer2");
