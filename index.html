@@ -35,9 +35,9 @@
 
         
         <h3><a id="timer1"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) I <small id="data1">May 16, 2020 14:00:00</small></a></h3>
-        <h3><a id="timer2"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) II <small id="data2">May 23, 2020 14:00:00</small></a></h3>
+        <h3><a id="timer2"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) II <small id="data2">May 24, 2020 14:00:00</small></a></h3>
         <h3><a id="timer3"></a><br /><a style="color: black;">Build Event Hjarnø (Danmark) <small id="data3">May 31, 2020 15:00:00</small></a></h3>
-        
+        <h3><a id="timer4"></a><br /><a style="color: black;">Build Event Reykjavik-Hallgrimskirkja (Iceland) <small id="data4">May 24, 2020 13:30:00</small></a></h3>
 
         
       </header>
@@ -81,6 +81,7 @@ var offset = new Date().getTimezoneOffset();
 var countDownDate1 = new Date(document.getElementById("data1").innerHTML).getTime();
 var countDownDate2 = new Date(document.getElementById("data2").innerHTML).getTime();
 var countDownDate3 = new Date(document.getElementById("data3").innerHTML).getTime();
+var countDownDate4 = new Date(document.getElementById("data4").innerHTML).getTime();
   
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -89,15 +90,16 @@ var x = setInterval(function() {
   timeMe(countDownDate1, "timer1");
   timeMe(countDownDate2, "timer2");
   timeMe(countDownDate3, "timer3");
+  timeMe(countDownDate3, "timer4");
   
 }, 1000);
   
 function timeMe(countDownDate, timerId) {
   var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var days = Math.floor(distance / 86400000);
+  var hours = Math.floor((distance % 86400000) / 3600000);
+  var minutes = Math.floor((distance % 3600000) / 60000);
+  var seconds = Math.floor((distance % 60000) / 1000);
   document.getElementById(timerId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
     document.getElementById(timerId).innerHTML = "EXPIRED";
