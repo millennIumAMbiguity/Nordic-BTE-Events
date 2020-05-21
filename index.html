@@ -84,8 +84,7 @@ var countDownDate3 = new Date(document.getElementById("data3").innerHTML).getTim
   
 // Update the count down every 1 second
 var x = setInterval(function() {
-  now = new Date().getTime();
-  now.setTime(now + offset);
+  now = new Date().getTime() + offset;
   
   timeMe(countDownDate1, "timer1");
   timeMe(countDownDate2, "timer2");
