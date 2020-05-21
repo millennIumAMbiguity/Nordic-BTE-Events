@@ -75,14 +75,7 @@
 </html>
 
 <script>
-
-Date.prototype.addHours = function(h) {
-  this.setTime(this.getTime() + (h*60*60*1000));
-  return this;
-}
-  
 var now = new Date().getUTCTime();
-
   
 var countDownDate1 = new Date(document.getElementById("data1").innerHTML).getTime();
 var countDownDate2 = new Date(document.getElementById("data2").innerHTML).getTime();
