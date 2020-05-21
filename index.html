@@ -34,9 +34,9 @@
         <p>Nordic build the earth events</p>
 
         
-        <h3><a id="timer1"></a><br /><a style="color: black;">Build Event Liseberg <small id="data1">May 16, 2020 14:00:00</small></a></h3>
+        <h3><a id="timer1"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) I <small id="data1">May 16, 2020 14:00:00</small></a></h3>
         
-        <h3><a id="timer2"></a><br /><a style="color: black;">Build Event Liseberg <small id="data2">May 16, 2021 14:00:00</small></a></h3>
+        <h3><a id="timer2"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) II <small id="data2">May 23, 2020 14:00:00</small></a></h3>
         
 
         
@@ -91,7 +91,7 @@ var x = setInterval(function() {
 }, 1000);
   
 function timeMe(countDownDate, timerId) {
-  var distance = countDownDate - now;
+  var distance = countDownDate - now + localDate.getTimezoneOffset();
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
