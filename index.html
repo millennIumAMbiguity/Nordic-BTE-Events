@@ -91,7 +91,7 @@ var countDownDate3 = new Date(document.getElementById("data3").innerHTML).getTim
 // Update the count down every 1 second
 var x = setInterval(function() {
   now = new Date().getUTCTime();
-  now.addHours(2);
+  now.setTime(now.getTime() + (7200000));
   
   timeMe(countDownDate1, "timer1");
   timeMe(countDownDate2, "timer2");
