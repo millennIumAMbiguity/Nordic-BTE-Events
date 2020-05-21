@@ -83,27 +83,25 @@ var countDownDate2 = new Date(document.getElementById("data2").innerHTML).getTim
   
 // Update the count down every 1 second
 var x = setInterval(function() {
-
   now = new Date().getTime();
   
-  
   timeMe(countDownDate1, "timer1");
-
-  
   timeMe(countDownDate2, "timer2");
-  
   
 }, 1000);
   
 function timeMe(countDownDate, timerId) {
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById(timerId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  if (distance < 0) {
-    document.getElementById(timerId).innerHTML = "EXPIRED";
+  if (countDownDate != null){
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById(timerId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+      document.getElementById(timerId).innerHTML = "EXPIRED";
+      countDownDate = null;
+    }
   }
 }
   
