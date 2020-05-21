@@ -34,7 +34,7 @@
         <p>Nordic build the earth events</p>
 
         
-        <p class="view"><a id="timer1"></a><a> Build Event Liseberg<small>May 16, 2020, 1pm</small></a></p>
+        <p><a id="timer1"></a><a> Build Event Liseberg<small>May 16, 2020, 1pm</small></a></p>
         
         <p class="view"><a id="timer2"></a><a> Build Event Liseberg<small>May 16, 2021, 1pm</small></a></p>
         
@@ -92,7 +92,6 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   document.getElementById("timer1").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
-    clearInterval(x);
     document.getElementById("timer1").innerHTML = "EXPIRED";
   }
 
@@ -104,7 +103,6 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   document.getElementById("timer2").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
-    clearInterval(x);
     document.getElementById("timer2").innerHTML = "EXPIRED";
   }
   
