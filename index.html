@@ -34,10 +34,10 @@
         <p>Nordic build the earth events (CET)</p>
 
         
-        <h3><a id="timer1"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) I <small id="data1">May 16, 2020 14:00:00</small></a></h3>
-        <h3><a id="timer2"></a><br /><a style="color: black;">Build Event Liseberg (Sweden) II <small id="data2">May 24, 2020 14:00:00</small></a></h3>
-        <h3><a id="timer3"></a><br /><a style="color: black;">Build Event Hjarnø (Danmark) <small id="data3">May 31, 2020 15:00:00</small></a></h3>
-        <h3><a id="timer4"></a><br /><a style="color: black;">Build Event Reykjavik-Hallgrimskirkja (Iceland) <small id="data4">May 24, 2020 13:30:00</small></a></h3>
+        <h3 class="event"><a></a><br /><a style="color: black;">Build Event Liseberg (Sweden) I <small>May 16, 2020 14:00:00</small></a></h3>
+        <h3 class="event"><a></a><br /><a style="color: black;">Build Event Liseberg (Sweden) II <small>May 24, 2020 14:00:00</small></a></h3>
+        <h3 class="event"><a></a><br /><a style="color: black;">Build Event Hjarnø (Danmark) <small>May 31, 2020 15:00:00</small></a></h3>
+        <h3 class="event"><a></a><br /><a style="color: black;">Build Event Reykjavik-Hallgrimskirkja (Iceland) <small>May 24, 2020 13:30:00</small></a></h3>
 
         
       </header>
@@ -78,19 +78,22 @@
 var now = new Date().getTime();
 var offset = new Date().getTimezoneOffset();
 
-var countDownDate1 = new Date(document.getElementById("data1").innerHTML).getTime();
-var countDownDate2 = new Date(document.getElementById("data2").innerHTML).getTime();
-var countDownDate3 = new Date(document.getElementById("data3").innerHTML).getTime();
-var countDownDate4 = new Date(document.getElementById("data4").innerHTML).getTime();
+var ds = document.getElementsByClassName('event');
+let dates = [new Date()];
+dates.length = ds.length;
+{
+	for (var i = 0; i < ds.length; i++) {
+		dates[i]= new Date(ds[i].getElementsByTagName("small")[0].innerHTML).getTime();
+    }
+}
   
 // Update the count down every 1 second
 var x = setInterval(function() {
   now = new Date().getTime() + offset;
   
-  timeMe(countDownDate1, "timer1");
-  timeMe(countDownDate2, "timer2");
-  timeMe(countDownDate3, "timer3");
-  timeMe(countDownDate4, "timer4");
+  for (var i = 0; i < ds.length; i++) {
+	timeMe(dates[i], ds[i].getElementsByTagName("a")[0]);
+  }
   
 }, 1000);
   
@@ -100,9 +103,9 @@ function timeMe(countDownDate, timerId) {
   var hours = Math.floor((distance % 86400000) / 3600000);
   var minutes = Math.floor((distance % 3600000) / 60000);
   var seconds = Math.floor((distance % 60000) / 1000);
-  document.getElementById(timerId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  timerId.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
-    document.getElementById(timerId).innerHTML = "EXPIRED";
+    timerId.innerHTML = "EXPIRED";
   }
 }
   
