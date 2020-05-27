@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.grayout {
+  color:#e0e0e0;
+}
+</style>
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Welcome to the Nordic + Baltic BTE Events website | Nordic-BTE-Events</title>
@@ -26,7 +31,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <
+	    er>
         <h1><a href="https://millenniumambiguity.github.io/Nordic-BTE-Events/">Nordic+Baltic-BTE-Events</a></h1>
         
         
@@ -125,6 +131,8 @@ function timeMeSimple(countDownDate, timerId, num) {
 		 var endDate = new Date(smalls[num+1].innerHTML).getTime();
 		  timeMe(endDate, timerId, num+1);
 	  } else {
+		smalls[num].setAttribute("class", "grayout"); 
+		smalls[num-1].setAttribute("class", "grayout"); 
 		timerId.getElementsByTagName("a")[0].innerHTML = "EXPIRED";  
 	  }
   } else {
