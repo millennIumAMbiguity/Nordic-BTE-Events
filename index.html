@@ -103,7 +103,7 @@ function timeMe(countDownDate, timerId, num) {
   var distance = countDownDate - now;
   if (distance < 0) {
 	  var smalls = timerId.getElementsByTagName("j");
-	  if (smalls.lenght >= num) {
+	  if (smalls.length > num + 1) {
 		 var endDate = new Date(smalls[num+1].innerHTML).getTime();
 		  timeMeSimple(endDate, timerId, num+1);
 	  } else {
@@ -121,7 +121,7 @@ function timeMeSimple(countDownDate, timerId, num) {
   var distance = countDownDate - now;
   if (distance < 0) {
 	var smalls = timerId.getElementsByTagName("j");
-	  if (smalls.lenght >= num) {
+	  if (smalls.length > num + 1) {
 		 var endDate = new Date(smalls[num+1].innerHTML).getTime();
 		  timeMe(endDate, timerId, num+1);
 	  } else {
