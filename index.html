@@ -126,12 +126,12 @@ function timeMeSimple(countDownDate, timerId, num) {
   var distance = countDownDate - now;
   if (distance < 0) {
 	var smalls = timerId.getElementsByTagName("j");
+	smalls[num].setAttribute("class", "grayout"); 
+	smalls[num-1].setAttribute("class", "grayout"); 
 	  if (smalls.length > num + 1) {
 		 var endDate = new Date(smalls[num+1].innerHTML).getTime();
 		  timeMe(endDate, timerId, num+1);
 	  } else {
-		smalls[num].setAttribute("class", "grayout"); 
-		smalls[num-1].setAttribute("class", "grayout"); 
 		timerId.getElementsByTagName("a")[0].innerHTML = "EXPIRED";  
 	  }
   } else {
