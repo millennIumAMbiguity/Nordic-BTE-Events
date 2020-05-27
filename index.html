@@ -107,7 +107,7 @@ function timeMe(countDownDate, timerId) {
 		 var endDate = new Date(smalls[1].innerHTML).getTime();
 		  timeMeSimple(endDate, timerId);
 	  } else {
-		timerId.innerHTML = "EXPIRED";  
+		timerId.getElementsByTagName("a")[0].innerHTML = "EXPIRED";  
 	  }
   } else {
     var days = Math.floor(distance / 86400000);
@@ -120,7 +120,7 @@ function timeMe(countDownDate, timerId) {
 function timeMeSimple(countDownDate, timerId) {
   var distance = countDownDate - now;
   if (distance < 0) {
-	timerId.innerHTML = "EXPIRED";  
+	timerId.getElementsByTagName("a")[0].innerHTML = "EXPIRED";  
   } else {
     var days = Math.floor(distance / 86400000);
     var hours = Math.floor((distance % 86400000) / 3600000);
