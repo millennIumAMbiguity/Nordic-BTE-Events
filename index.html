@@ -104,7 +104,7 @@ function timeMe(countDownDate, timerId) {
   if (distance < 0) {
 	  var smalls = timerId.getElementsByTagName("small");
 	  if (smalls.lenght > 1) {
-		 var endDate = new Date(smalls[0].innerHTML).getTime();
+		 var endDate = new Date(smalls[1].innerHTML).getTime();
 		  timeMeSimple(endDate, timerId);
 	  } else {
 		timerId.innerHTML = "EXPIRED";  
