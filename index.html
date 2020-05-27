@@ -94,39 +94,39 @@ var x = setInterval(function() {
   now = new Date().getTime() + offset;
   
   for (var i = 0; i < ds.length; i++) {
-	timeMe(dates[i], ds[i].getElementsByTagName("a")[0]);
+	timeMe(dates[i], ds[i]);
   }
   
 }, 1000);
   
 function timeMe(countDownDate, timerId) {
   var distance = countDownDate - now;
-  var days = Math.floor(distance / 86400000);
-  var hours = Math.floor((distance % 86400000) / 3600000);
-  var minutes = Math.floor((distance % 3600000) / 60000);
-  var seconds = Math.floor((distance % 60000) / 1000);
-  timerId.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
-	  
-	  var smalls = countDownDate.getElementsByTagName("small");
-	  if (smalls.lenght > 1)
-	  {
+	  var smalls = timerId.getElementsByTagName("small");
+	  if (smalls.lenght > 1) {
 		 var endDate = new Date(smalls[0].innerHTML).getTime();
 		  timeMeSimple(endDate, timerId);
 	  } else {
 		timerId.innerHTML = "EXPIRED";  
 	  }
+  } else {
+    var days = Math.floor(distance / 86400000);
+    var hours = Math.floor((distance % 86400000) / 3600000);
+    var minutes = Math.floor((distance % 3600000) / 60000);
+    var seconds = Math.floor((distance % 60000) / 1000);
+    timerId.getElementsByTagName("a")[0].innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   }
 }
 function timeMeSimple(countDownDate, timerId) {
   var distance = countDownDate - now;
-  var days = Math.floor(distance / 86400000);
-  var hours = Math.floor((distance % 86400000) / 3600000);
-  var minutes = Math.floor((distance % 3600000) / 60000);
-  var seconds = Math.floor((distance % 60000) / 1000);
-  timerId.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
 	timerId.innerHTML = "EXPIRED";  
+  } else {
+    var days = Math.floor(distance / 86400000);
+    var hours = Math.floor((distance % 86400000) / 3600000);
+    var minutes = Math.floor((distance % 3600000) / 60000);
+    var seconds = Math.floor((distance % 60000) / 1000);
+    timerId.getElementsByTagName("a")[0].innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   }
 }
   
