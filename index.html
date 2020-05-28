@@ -114,6 +114,7 @@ function timeMe(countDownDate, timerId, num) {
 		 var endDate = new Date(smalls[num+1].innerHTML).getTime();
 		  timeMeSimple(endDate, timerId, num+1);
 	  } else {
+		smalls[num].setAttribute("class", "grayout"); 
 		timerId.getElementsByTagName("a")[0].innerHTML = "EXPIRED";  
 	  }
   } else {
