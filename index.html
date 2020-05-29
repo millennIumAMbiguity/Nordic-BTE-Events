@@ -90,6 +90,7 @@
 <script>
 var now = new Date().getTime();
 var offset = new Date().getTimezoneOffset();
+var boolSw = true;
 
 var ds = document.getElementsByClassName('event');
 let dates = [new Date()];
@@ -127,6 +128,10 @@ function timeMe(countDownDate, timerId, num) {
     var minutes = Math.floor((distance % 3600000) / 60000);
     var seconds = Math.floor((distance % 60000) / 1000);
     timerId.getElementsByTagName("a")[0].innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    if (boolSw){
+      boolSw = false;
+      document.querySelector('meta[name="description"]').setAttribute("content", "Next build event starts in  " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+    }
   }
 }
 function timeMeSimple(countDownDate, timerId, num) {
